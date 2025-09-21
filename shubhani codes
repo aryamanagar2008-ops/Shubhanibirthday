@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ivory': '#fcfcfc',
+                        'blush-pink': '#ffe8e8',
+                        'light-brown': '#d4bba4',
+                        'dark-brown': '#8c7865',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            overflow-x: hidden;
+            color: #8c7865;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s forwards;
+            transform: translateX(100px);
+            opacity: 0;
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .surprise-card {
+            transform: scale(0.95);
+            transition: transform 0.2s ease-in-out;
+        }
+        .surprise-card:hover {
+            transform: scale(1.0);
+        }
+
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #surprise-content {
+            animation: modalFadeIn 0.5s forwards;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-ivory text-dark-brown">
+
+    <!-- Greeting Section -->
+    <section id="greeting-section" class="min-h-screen flex items-center justify-center text-center p-8 relative overflow-hidden">
+        <div class="z-10 relative space-y-4">
+            <h1 id="greeting-text-1" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold opacity-0">Hey, you...</h1>
+            <h1 id="greeting-text-2" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold opacity-0">Today isn't just any day...</h1>
+            <h1 id="greeting-text-3" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold opacity-0 text-blush-pink">it's your day.</h1>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section (3D) -->
+    <section id="gallery-section" class="bg-blush-pink py-16 px-4 md:px-8 lg:px-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in" style="animation-delay: 2s;">Our Own Little World</h2>
+        <div class="relative w-full h-96 md:h-[600px] overflow-hidden rounded-3xl shadow-lg bg-light-brown">
+            <canvas id="photo-canvas" class="w-full h-full"></canvas>
+        </div>
+    </section>
+
+    <!-- Photo Slideshow Section -->
+    <section class="bg-ivory py-16 px-4 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto space-y-20">
+            <!-- Photo 1: Couple Photo -->
+            <div id="photo-1" class="flex flex-col md:flex-row items-center gap-8 md:gap-16 opacity-0">
+                <div class="w-full md:w-1/2 p-4 md:p-8 bg-blush-pink rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <img src="uploaded:WhatsApp Image 2025-09-18 at 8.48.31 PM.jpeg-b436344e-b636-4681-8dc4-f6ee30b91eb3" alt="Couple photo" class="w-full h-auto object-cover rounded-2xl">
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <p class="text-lg md:text-xl leading-relaxed italic text-dark-brown">
+                        "This moment? I'll treasure it forever."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo 2: Individual Photo -->
+            <div id="photo-2" class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 opacity-0">
+                <div class="w-full md:w-1/2 p-4 md:p-8 bg-light-brown rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <img src="uploaded:WhatsApp Image 2025-09-21 at 12.24.17 PM (1).jpeg-3481ef15-b96d-4b3e-adc0-acd3f746ece7" alt="Individual photo" class="w-full h-auto object-cover rounded-2xl">
+                </div>
+                <div class="w-full md:w-1/2 text-center md:text-right">
+                    <p class="text-lg md:text-xl leading-relaxed italic text-dark-brown">
+                        "Your smile is my favorite thing in the world."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Photo Gallery Section -->
+    <section class="bg-blush-pink py-16 px-4 md:px-8 lg:px-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8">Memories with You</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="bg-ivory p-4 rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                <img src="uploaded:WhatsApp Image 2025-09-21 at 12.13.53 PM.jpeg-3fe73b1e-73af-4a38-b511-50c8122b451d" alt="Couple photo" class="w-full h-auto object-cover rounded-2xl">
+                <p class="mt-4 text-sm md:text-base italic">"Just us, having the best time."</p>
+            </div>
+            <div class="bg-ivory p-4 rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                <img src="uploaded:WhatsApp Image 2025-09-21 at 12.13.53 PM (1).jpeg-5da1c9fc-c695-488f-9b27-1ce2ca29c9e2" alt="Couple photo" class="w-full h-auto object-cover rounded-2xl">
+                <p class="mt-4 text-sm md:text-base italic">"The simplest moments are the sweetest."</p>
+            </div>
+            <div class="bg-ivory p-4 rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                <img src="uploaded:WhatsApp Image 2025-09-21 at 12.13.53 PM (2).jpeg-ba6be6ab-5ffb-4024-b3ba-cb7bb8063f6f" alt="Couple photo" class="w-full h-auto object-cover rounded-2xl">
+                <p class="mt-4 text-sm md:text-base italic">"Adventures with my favorite person."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="bg-ivory py-20 px-4 md:px-8 lg:px-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">A Little Birthday Surprise</h2>
+        <button id="surprise-button" class="surprise-card bg-blush-pink text-dark-brown font-semibold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-100">
+            Click for a Surprise!
+        </button>
+    </section>
+
+    <!-- Surprise Modal (hidden by default) -->
+    <div id="surprise-modal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-ivory p-8 rounded-3xl shadow-2xl max-w-2xl w-full relative" id="surprise-content">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-dark-brown text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl md:text-3xl font-bold text-blush-pink mb-4">A Video Montage</h3>
+            <div class="flex justify-center items-center">
+                <video controls class="w-full max-w-full rounded-xl shadow-lg">
+                    <source src="uploaded:WhatsApp Video 2025-09-21 at 12.13.53 PM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Message Section -->
+    <section class="bg-blush-pink py-20 px-4 md:px-8 lg:px-16 text-center">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Happy Birthday, my love.</h2>
+        <p class="text-lg md:text-xl italic">
+            You're my favorite chapter.
+        </p>
+    </section>
+
+    <!-- three.js for 3D animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        // Greeting Text Animation
+        const greeting1 = document.getElementById('greeting-text-1');
+        const greeting2 = document.getElementById('greeting-text-2');
+        const greeting3 = document.getElementById('greeting-text-3');
+        const photo1 = document.getElementById('photo-1');
+        const photo2 = document.getElementById('photo-2');
+
+        const animateText = (element, delay) => {
+            setTimeout(() => {
+                element.style.opacity = 1;
+                element.style.animation = 'fadeIn 1.5s forwards';
+            }, delay);
+        };
+
+        animateText(greeting1, 500);
+        animateText(greeting2, 2000);
+        animateText(greeting3, 3500);
+
+        // Fade-in photo sections
+        const animatePhotos = (element, delay) => {
+            setTimeout(() => {
+                element.style.opacity = 1;
+                element.style.animation = 'slideInRight 1s forwards';
+            }, delay);
+        };
+        
+        animatePhotos(photo1, 5000);
+        animatePhotos(photo2, 6000);
+
+        // Three.js 3D photo animation
+        let scene, camera, renderer, photoObject, heartParticles;
+        const heartCount = 50;
+        const mouse = { x: 0, y: 0 };
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        const initThree = () => {
+            const canvas = document.getElementById('photo-canvas');
+            if (!canvas) return;
+
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+            // Add ambient light
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+
+            // Add a directional light
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            directionalLight.position.set(0, 1, 1);
+            scene.add(directionalLight);
+
+            // Create 3D photo
+            const photoGeometry = new THREE.PlaneGeometry(3, 2);
+            const photoTexture = new THREE.TextureLoader().load("uploaded:WhatsApp Image 2025-09-18 at 8.48.34 PM.jpeg-55427b0f-6062-4914-aaef-cdf4aa65ef27", () => {
+                photoObject = new THREE.Mesh(photoGeometry, new THREE.MeshLambertMaterial({ map: photoTexture, side: THREE.DoubleSide }));
+                scene.add(photoObject);
+            });
+            photoTexture.colorSpace = THREE.SRGBColorSpace;
+            
+            // Create floating hearts
+            heartParticles = new THREE.Group();
+            for (let i = 0; i < heartCount; i++) {
+                const heartShape = new THREE.Shape();
+                heartShape.moveTo(0.25, 0.25);
+                heartShape.bezierCurveTo(0.25, 0.25, 0.2, 0, 0, 0);
+                heartShape.bezierCurveTo(-0.3, 0, -0.3, 0.35, -0.3, 0.35);
+                heartShape.bezierCurveTo(-0.3, 0.55, -0.1, 0.77, 0.25, 0.95);
+                heartShape.bezierCurveTo(0.6, 0.77, 0.8, 0.55, 0.8, 0.35);
+                heartShape.bezierCurveTo(0.8, 0.35, 0.8, 0, 0.5, 0);
+                heartShape.bezierCurveTo(0.35, 0, 0.25, 0.25, 0.25, 0.25);
+
+                const heartGeometry = new THREE.ShapeGeometry(heartShape);
+                const heartMaterial = new THREE.MeshBasicMaterial({ color: 0xffe8e8, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
+                const heartMesh = new THREE.Mesh(heartGeometry, heartMaterial);
+
+                heartMesh.position.x = (Math.random() - 0.5) * 10;
+                heartMesh.position.y = (Math.random() - 0.5) * 10;
+                heartMesh.position.z = (Math.random() - 0.5) * 10;
+
+                heartMesh.rotation.x = Math.random() * 2 * Math.PI;
+                heartMesh.rotation.y = Math.random() * 2 * Math.PI;
+                heartMesh.rotation.z = Math.random() * 2 * Math.PI;
+
+                heartMesh.userData.speed = Math.random() * 0.005 + 0.001;
+                heartMesh.userData.direction = new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
+
+                heartParticles.add(heartMesh);
+            }
+            scene.add(heartParticles);
+
+            camera.position.z = 4;
+
+            window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+        };
+
+        const onWindowResize = () => {
+            const canvas = document.getElementById('photo-canvas');
+            if (!canvas) return;
+
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+        };
+
+        const onDocumentMouseMove = (event) => {
+            mouse.x = (event.clientX - windowHalfX) * 0.001;
+            mouse.y = (event.clientY - windowHalfY) * 0.001;
+        };
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            if (photoObject) {
+                photoObject.rotation.y += (mouse.x - photoObject.rotation.y) * 0.05;
+                photoObject.rotation.x += (-mouse.y - photoObject.rotation.x) * 0.05;
+            }
+
+            if (heartParticles) {
+                heartParticles.children.forEach(heart => {
+                    heart.position.addScaledVector(heart.userData.direction, heart.userData.speed);
+                    heart.rotation.x += heart.userData.speed * 2;
+                    heart.rotation.y += heart.userData.speed * 2;
+
+                    if (heart.position.length() > 5) {
+                        heart.position.set(0, 0, 0);
+                        heart.position.x = (Math.random() - 0.5) * 10;
+                        heart.position.y = (Math.random() - 0.5) * 10;
+                        heart.position.z = (Math.random() - 0.5) * 10;
+                        heart.userData.direction = new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
+                    }
+                });
+            }
+
+            renderer.render(scene, camera);
+        };
+
+        // Surprise Modal Logic
+        const surpriseButton = document.getElementById('surprise-button');
+        const surpriseModal = document.getElementById('surprise-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+
+        surpriseButton.addEventListener('click', () => {
+            surpriseModal.classList.remove('hidden');
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            surpriseModal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        surpriseModal.addEventListener('click', (e) => {
+            if (e.target === surpriseModal) {
+                surpriseModal.classList.add('hidden');
+            }
+        });
+
+        window.onload = function() {
+            initThree();
+            animate();
+        };
+
+    </script>
+</body>
+</html>
