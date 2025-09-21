@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ivory': '#fcfcfc',
+                        'blush-pink': '#ffe8e8',
+                        'light-brown': '#d4bba4',
+                        'dark-brown': '#8c7865',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            overflow-x: hidden;
+            color: #8c7865;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 1s forwards;
+            transform: translateX(100px);
+            opacity: 0;
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .scale-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .scale-up-on-hover {
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .scale-up-on-hover:hover {
+            transform: scale(1.1);
+        }
+
+        .surprise-card {
+            transform: scale(0.95);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .surprise-card:hover {
+            transform: scale(1.0);
+        }
+
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #surprise-content {
+            animation: modalFadeIn 0.5s forwards;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Button Hover */
+        .btn-hover:hover {
+            background-color: #e8c2d7;
+            transform: scale(1.05);
+        }
+
+        .scroll-button {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            background-color: #8c7865;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 1000;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .scroll-button:hover {
+            background-color: #e8c2d7;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body class="bg-ivory text-dark-brown">
+
+    <!-- Greeting Section -->
+    <section id="greeting-section" class="min-h-screen flex items-center justify-center text-center p-8 relative overflow-hidden">
+        <div class="z-10 relative space-y-4">
+            <h1 id="greeting-text-1" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold opacity-0">Hey, you...</h1>
+            <h1 id="greeting-text-2" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold opacity-0">Today isn't just any day...</h1>
+            <h1 id="greeting-text-3" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold opacity-0 text-blush-pink">it's your day.</h1>
+        </div>
+    </section>
+
+    <!-- New Photo Gallery Section -->
+    <section class="bg-blush-pink py-16 px-4 md:px-8 lg:px-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 fade-in" style="animation-delay: 2s;">Memories with You</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="bg-ivory p-4 rounded-3xl shadow-xl transform scale-up-on-hover">
+                <img src="uploaded:WhatsApp Image 2025-09-21 at 12.13.53 PM.jpeg-3fe73b1e-73af-4a38-b511-50c8122b451d" alt="Couple photo" class="w-full h-auto object-cover rounded-2xl">
+                <p class="mt-4 text-sm md:text-base italic">"Just us, having the best time."</p>
+            </div>
+            <div class="bg-ivory p-4 rounded-3xl shadow-xl transform scale-up-on-hover">
+                <img src="uploaded:WhatsApp Image 2025-09-21 at 12.13.53 PM (1).jpeg-5da1c9fc-c695-488f-9b27-1ce2ca29c9e2" alt="Couple photo" class="w-full h-auto object-cover rounded-2xl">
+                <p class="mt-4 text-sm md:text-base italic">"The simplest moments are the sweetest."</p>
+            </div>
+            <div class="bg-ivory p-4 rounded-3xl shadow-xl transform scale-up-on-hover">
+                <img src="uploaded:WhatsApp Image 2025-09-21 at 12.13.53 PM (2).jpeg-ba6be6ab-5ffb-4024-b3ba-cb7bb8063f6f" alt="Couple photo" class="w-full h-auto object-cover rounded-2xl">
+                <p class="mt-4 text-sm md:text-base italic">"Adventures with my favorite person."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="bg-ivory py-20 px-4 md:px-8 lg:px-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10">A Little Birthday Surprise</h2>
+        <button id="surprise-button" class="surprise-card bg-blush-pink text-dark-brown font-semibold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-100">
+            Click for a Surprise!
+        </button>
+    </section>
+
+    <!-- Surprise Modal (hidden by default) -->
+    <div id="surprise-modal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-ivory p-8 rounded-3xl shadow-2xl max-w-2xl w-full relative" id="surprise-content">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-dark-brown text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl md:text-3xl font-bold text-blush-pink mb-4">A Video Montage</h3>
+            <div class="flex justify-center items-center">
+                <video controls class="w-full max-w-full rounded-xl shadow-lg">
+                    <source src="uploaded:WhatsApp Video 2025-09-21 at 12.13.53 PM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Message Section -->
+    <section class="bg-blush-pink py-20 px-4 md:px-8 lg:px-16 text-center">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Happy Birthday, my love.</h2>
+        <p class="text-lg md:text-xl italic">
+            You're my favorite chapter.
+        </p>
+    </section>
+
+    <!-- Scroll Button
